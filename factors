@@ -3,8 +3,8 @@
 check_factor() {
     if [ $# -ne 1 ]; then
         args=($1)
-        num1=${args[1]}
-        num2=${args[0]}
+        num1=${args[0]}
+        num2=${args[1]}
         echo "$num1=$num2"
     else
         echo "$1"
