@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+check_factor() {
+    if [ $# -ne 1 ]; then
+        args=($1)
+        num1=${args[0]}
+        num2=${args[1]}
+        echo "$num1=$num2"
+    else
+        echo "$1"
+    fi
+}
+
+if [ $# -ne 1 ]; then
+    echo 'Usage: factors <file>'
+    exit 1
+else
+    while read i; do
+        factors=$(factor "$i" | awk '{ $1=""; print $0 }' | tr -s ' ' '*' | sed 's/^*//;s/\*$//')
+        echo "$i=$factors"
+    done < "$1"
+fi
