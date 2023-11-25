@@ -34,7 +34,7 @@ def main(filename):
     for line in lines:
         num = int(line)
         factors = factorize(num)
-        print("{}={}*{}".format(num, factors[0], factors[1]))
+        print("{}={}*{}".format(num, factors[1], factors[0]))
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
